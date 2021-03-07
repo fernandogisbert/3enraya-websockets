@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vendors/vue.min.js"></script>
+    <script defer src="js/index.js"></script>
+
+    <style>
+
+        .raya3{
+            display:grid;
+            grid-template-rows: repeat(3,1fr);
+            margin-top: 1rem;
+        }
+
+        .raya3__casilla{
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            width: 500px;
+            text-align: center;
+            font-size:2rem;
+        }
+
+        .raya3__opcion{
+            border: 1px solid black;
+            padding: 1rem 0
+        }
+
+    </style>
+    
+</head>
+<body>
+    <div id="app">
+
+        <!-- seleccionar jugador -->
+        <select v-model="jugador">
+            <option value="1">Jugador 1</option>
+            <option value="2">Jugador 2</option>
+        </select>
+
+        <!-- tablero -->
+        <div class="raya3">
+            <div v-for="(x, indiceX) in casillas" class="raya3__casilla">
+                <div @click="marcar(indiceX, indiceY)" v-for="(y, indiceY) in x" class="raya3__opcion">
+                    {{y}}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
